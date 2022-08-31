@@ -1,0 +1,18 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+rm(list=ls());
+source("functionEx.R")
+source('trainadaline.R');
+source('yadaline.R');
+library('plot3D');
+source('trainadalinePerceptron.R');
+
+```
+
+```{r message=FALSE, warning=FALSE}
+exercice(2, "adaline", 0.01, 0.001, 50, 0.9)
+```
