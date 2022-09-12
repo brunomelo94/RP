@@ -1,0 +1,39 @@
+---
+title: "Exercício KNN"
+author: "Bruno Caetano Oliveira de Melo"
+subtitle: "Introdrução ao Reconhecimento de Padrões"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+
+rm(list=ls())
+
+# Duas classes gaussianas.
+
+x1<-replicate(2,rnorm(20,mean=5,sd=0.8))
+x2<-replicate(2,rnorm(20,mean=8,sd=0.4))
+
+y1 = array(1,c(20,1))
+y2 = y1*(-1)
+
+plot(x1[,1],x1[,2],col="red",xlim=c(0,10),ylim=c(0,10))
+points(x2[,1],x2[,2],col="blue")
+
+
+X = rbind(x1,x2)
+Y = rbind(y1,y2)
+
+
+xt = c(7.5,7)
+
+points(xt[1],xt[2],col="green")
+
+
+k=5
+
+source("myknnR.R")
+result = myknnR(X,Y,xt,k)
+```
